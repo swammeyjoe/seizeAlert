@@ -4,11 +4,7 @@
     android:layout_height="match_parent" >
 
     <TextView
-<<<<<<< HEAD
         android:id="@+id/seizureNumber"
-=======
-        android:id="@+id/textView2"
->>>>>>> ce06a760e76fa86cbd6369ba5828ef1081e4fbb5
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00%" />
@@ -19,16 +15,5 @@
         android:layout_height="wrap_content"
         android:text="CONTACT NAMES" />
 
-<<<<<<< HEAD
 </LinearLayout>
-=======
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:text="TextView" />
 
-</RelativeLayout>
->>>>>>> ce06a760e76fa86cbd6369ba5828ef1081e4fbb5
