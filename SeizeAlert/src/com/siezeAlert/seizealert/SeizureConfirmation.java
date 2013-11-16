@@ -33,6 +33,12 @@ public class SeizureConfirmation extends Activity {
 		finish();
 	}
 	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+//		this.remove(this);
+	}
+	
 	private void countDown() {
 		if(currentCountDown-1 < 0) {
 			Intent intent = new Intent(this, TextingActivity.class);
