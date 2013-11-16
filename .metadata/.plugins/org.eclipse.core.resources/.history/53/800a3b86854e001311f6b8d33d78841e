@@ -1,0 +1,36 @@
+package com.siezeAlert.seizealert;
+
+import android.app.IntentService;
+import android.os.Bundle;
+import android.content.Intent;
+
+
+
+public class MonitoringService extends IntentService {
+	public final int TIME_LIMIT = 30;
+	public final int THRESHOLD = 55;
+	public MonitoringService(String name) {
+		super(name);
+		// Auto-generated constructor stub
+	}
+
+	@Override
+	protected void onHandleIntent(Intent incoming) {
+		String dataString = incoming.getDataString();
+		System.out.println("This is the string we're getting from the intent: " + dataString);
+		
+		/*My plan for this method.
+		
+		int overCounter, underCounter;
+		while (1) {
+			int value = readFromBoard();
+			if (value > THRESHOLD) {
+				overCounter++;
+			}
+			if (overCounter > TIME_LIMIT){
+				break;
+			}
+		}*/
+		//create an intent that launches the FalsePositive check activity
+	}
+}

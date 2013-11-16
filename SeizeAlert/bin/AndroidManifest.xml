@@ -16,25 +16,13 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.siezeAlert.seizealert.StartActivity"
+            android:name=".SeizeAlert"
             android:label="@string/title_activity_start" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.siezeAlert.seizealert.SetupIntro"
-            android:label="@string/title_activity_setup_intro" >
-        </activity>
-        <activity
-            android:name="com.siezeAlert.seizealert.SetupGetName"
-            android:label="@string/title_activity_setup_get_name" >
-        </activity>
-        <activity
-            android:name="com.siezeAlert.seizealert.SetupGetContacts"
-            android:label="@string/title_activity_setup_get_contacts" >
         </activity>
     </application>
 
