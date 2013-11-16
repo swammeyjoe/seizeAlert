@@ -16,17 +16,10 @@ public class NotificationPressed extends Activity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_start);
-        
-        
-        
-        
-        
+        //setContentView(R.layout.activity_start);  
     	NotificationCompat.Builder mBuilder =
     	        new NotificationCompat.Builder(this)
-    			// ***** commented out b/c dont know about notification_icon
-    			// dont really need an icon *****
-    	       	//.setSmallIcon(R.drawable.notification_icon)
+    			.setSmallIcon(R.drawable.ic_launcher)
     	        .setContentTitle("YOU'RE GONNA DIE!")
     	        .setContentText("Click this to live");
     	// Creates an explicit intent for an Activity in your app
@@ -39,18 +32,19 @@ public class NotificationPressed extends Activity {
     	// started Activity.
     	// This ensures that navigating backward from the Activity leads out of
     	// your application to the Home screen.
-    	TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+    	//TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
     	// Adds the back stack for the Intent (but not the Intent itself)
-    	stackBuilder.addParentStack(StartActivity.class);
+    	//stackBuilder.addParentStack(StartActivity.class);
     	// Adds the Intent that starts the Activity to the top of the stack
-    	PendingIntent resultPendingIntent =
+    	/*PendingIntent resultPendingIntent =
     	        stackBuilder.getPendingIntent(
     	            0,
     	            PendingIntent.FLAG_UPDATE_CURRENT
     	        );
-    	mBuilder.setContentIntent(resultPendingIntent);
+    	mBuilder.setContentIntent(resultPendingIntent);*/
+    	
     	NotificationManager mNotificationManager =
-    	    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+    			(NotificationManager) getSystemService("notification");
     	mNotificationManager.notify(123, mBuilder.build());
         
          

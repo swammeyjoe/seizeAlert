@@ -35,8 +35,8 @@ public class StartActivity extends Activity {
             editor.putBoolean("FirstTime", false);
             editor.commit();
             
-        	//Intent intent = new Intent(this, SetupIntro.class);
-            //startActivityForResult(intent, 0);
+        	Intent intent = new Intent(this, SetupIntro.class);
+            startActivityForResult(intent, 0);
         } else {
         	
         	editor.remove("FirstTime");

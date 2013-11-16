@@ -17,7 +17,6 @@
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="Caviar_Dreams"
         android:textSize="15sp"
         android:layout_below="@+id/title"
         android:hint="Put Yo Name"/>
