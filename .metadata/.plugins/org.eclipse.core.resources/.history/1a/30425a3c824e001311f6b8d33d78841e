@@ -1,0 +1,8 @@
+package com.siezeAlert.seizealert;
+
+import android.app.IntentService;
+import android.os.Bundle;
+
+public class MonitoringService extends IntentService {
+	@Override
+}
