@@ -20,6 +20,6 @@ public class TextingActivity extends Activity {
 			number = "1111111111";
 		}
 		
-		texting.sendTextMessage(number, null, "HELP", null, null);
+		texting.sendTextMessage("9562890158", null, "HELP", null, null);
 	}
 }
