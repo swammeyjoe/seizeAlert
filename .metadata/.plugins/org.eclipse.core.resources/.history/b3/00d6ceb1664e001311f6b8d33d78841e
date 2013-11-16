@@ -1,0 +1,9 @@
+package com.siezeAlert.seizealert;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class TextingActivity extends Activity {
+	
+}
