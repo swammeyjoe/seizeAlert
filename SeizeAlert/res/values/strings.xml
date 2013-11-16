@@ -5,12 +5,15 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_start">StartActivity</string>
-    <string name="title_activity_setup_intro">SetupIntro</string>
+    <string name="title_activity_setup_intro">Introduction</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_setup_get_name">SetupGetName</string>
     <string name="title_activity_setup_get_contacts">SetupGetContacts</string>
     <string name="seize_alert_title">SEIZEALERT</string>
-    <string name="seize_alert_description">SeizeAlert is an application that listens to your skins conductivity to determine if you are having a stroke.  If you are having a stroke, SeizeAlert will contact the people of your choosing (ie. your mom).  Click NEXT to get started with the initial set up.</string>
-	<string name="next">Next</string>
-	
+    <string name="seize_alert_description">SeizeAlert is an application that listens to your skin\'s conductivity to determine if you are having a stroke.  If you are having a stroke, SeizeAlert will contact your emergency contacts (ie. your mom).  Click NEXT to get started with the initial set up.</string>
+    <string name="next">Next</string>
+    <string name="title_activity_seizure_confirmation">SeizureConfirmation</string>
+    <string name="emergency_contacts"><b><u>Emergency Contacts</u></b></string>
+    <string name="alright"><b><center>I\'"M ALRIGHT</center></b></string>
+
 </resources>

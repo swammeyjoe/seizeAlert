@@ -1,6 +1,5 @@
 package com.siezeAlert.seizealert;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +13,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 public class SetupGetContacts extends Activity {
 
@@ -69,6 +69,9 @@ public class SetupGetContacts extends Activity {
         String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
         String number = "12345";// cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
         System.out.printf(name+" "+number+"\n");        
+        
+        TextView emergencyContacts = (TextView) findViewById(R.id.emergency_contacts_names);
+        emergencyContacts.setText(emergencyContacts.getText() + name + "\n");
         
         Set contact = new HashSet();
         contact.add(name);
