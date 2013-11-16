@@ -2,6 +2,10 @@ package com.siezeAlert.seizealert;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.Menu;
 
@@ -22,12 +26,26 @@ public class StartActivity extends Activity {
         }
         
         //check if an async task is currently running, if not fire one off to monitor the data
-        
+        if (!isMonitorRunning()){
+        	Intent serviceIntent = new Intent(StartActivity.this, MonitoringService.class);
+        	serviceIntent.setData(null);
+        	StartActivity.this.startService(serviceIntent);
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_start, menu);
         return true;
+    }
+    
+    private boolean isMonitorRunning() {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (MonitoringService.class.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
