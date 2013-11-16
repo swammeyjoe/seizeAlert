@@ -49,9 +49,7 @@ public class MonitoringService extends IntentService {
 
 	@Override
 	protected void onHandleIntent(Intent incoming) {
-		//String dataString = incoming.getDataString();
-		//System.out.println("This is the string we're getting from the intent: " + dataString);
- 
+
 		System.out.println("Reached monitoring service");
 		long vibrate[] = {0, 100, 0, 100,0, 100, 0, 100,0, 100, 0, 100,0, 100, 0, 100};
 		//My plan for this method.
@@ -82,6 +80,11 @@ public class MonitoringService extends IntentService {
 		System.out.println("I MADE IT");
 		
 		
+    	Intent resultIntent2 = new Intent(this, SeizureConfirmation.class);    	
+    	resultIntent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(resultIntent2);
+		
+		
 		int overCounter = 0;
 		int underCounter = 0;
 		while (true) {
@@ -93,8 +96,10 @@ public class MonitoringService extends IntentService {
 				break;
 			}
 		}
-//		Intent intent = new Intent(MonitoringService.this, NotificationPressed.class);
-		
+		//create an intent that launches a notification
+		Intent intent = new Intent(MonitoringService.this, NotificationPressed.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(intent); 
 		
 	}
 	
