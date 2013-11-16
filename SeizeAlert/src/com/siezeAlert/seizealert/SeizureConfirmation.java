@@ -30,12 +30,13 @@ public class SeizureConfirmation extends Activity {
 	}
 	
 	public void falseAlarm(View view) {
-		;
+		finish();
 	}
 	
 	private void countDown() {
 		if(currentCountDown-1 < 0) {
 			Intent intent = new Intent(this, TextingActivity.class);
+			startActivity(intent);
 			return;
 		}
 

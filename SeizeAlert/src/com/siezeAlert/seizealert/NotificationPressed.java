@@ -23,7 +23,7 @@ public class NotificationPressed extends Activity {
     			.setSmallIcon(R.drawable.ic_launcher)
     	        .setContentTitle("YOU'RE GONNA DIE!")
     	        .setContentText("Click this to live");
-    	Intent resultIntent = new Intent(this, StartActivity.class);    	
+    	Intent resultIntent = new Intent(this, SeizureConfirmation.class);    	
     	
     	TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
     	stackBuilder.addParentStack(StartActivity.class);

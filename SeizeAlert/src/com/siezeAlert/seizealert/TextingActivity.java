@@ -12,12 +12,21 @@ import android.view.Menu;
 @SuppressLint("UnlocalizedSms")
 public class TextingActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		String name, number;
 		SmsManager texting = SmsManager.getDefault();
-		SharedPreferences data = getPreferences(MODE_PRIVATE);
-    	Set <String> c = data.getStringSet("Contact", null);//new HashSet<String>());
+		
+		SharedPreferences data = getSharedPreferences("seizeAlert_pref", MODE_PRIVATE);
+    	Set <String> c = data.getStringSet("Contact0", null);//new HashSet<String>());
+    	if(c == null) {
+        	System.out.printf("C IS NULL\n");
+    		return;
+    	}
+
 		Object [] contact = c.toArray();
-		number = (String) contact[1];			
+
+		number = (String) contact[0];
+		System.out.printf(number+"\n");
 		texting.sendTextMessage(number, null, "Automated testing app texting. Sorry.", null, null);
 	}
 }

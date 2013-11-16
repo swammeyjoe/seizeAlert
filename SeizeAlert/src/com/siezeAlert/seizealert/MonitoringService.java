@@ -4,17 +4,34 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import android.annotation.SuppressLint;
 import android.app.IntentService;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.TextView;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+
 
 import android.hardware.usb.*;
 
+@SuppressLint("NewApi")
 public class MonitoringService extends IntentService {
 	public final int TIME_LIMIT = 30;
 	public final int THRESHOLD = 55;
@@ -34,12 +51,36 @@ public class MonitoringService extends IntentService {
 	protected void onHandleIntent(Intent incoming) {
 		//String dataString = incoming.getDataString();
 		//System.out.println("This is the string we're getting from the intent: " + dataString);
-		Intent intent = new Intent(MonitoringService.this, NotificationPressed.class);
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startActivity(intent); 
+ 
 		System.out.println("Reached monitoring service");
-
+		long vibrate[] = {0, 100, 0, 100,0, 100, 0, 100,0, 100, 0, 100,0, 100, 0, 100};
 		//My plan for this method.
+		NotificationCompat.Builder mBuilder =
+    	        new NotificationCompat.Builder(this)
+    			.setSmallIcon(R.drawable.ic_launcher)
+    	        .setContentTitle("YOU'RE GONNA DIE!")
+    	        .setAutoCancel(true)
+    	        .setVibrate(vibrate)
+    	        .setContentText("Click this to live");
+    	Intent resultIntent = new Intent(this, SeizureConfirmation.class);    	
+    	
+    	TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+    	stackBuilder.addParentStack(StartActivity.class);
+    	stackBuilder.addNextIntent(resultIntent);
+    	PendingIntent resultPendingIntent =
+    	        stackBuilder.getPendingIntent(
+    	            0,
+    	            PendingIntent.FLAG_UPDATE_CURRENT
+    	        );
+    	
+    	mBuilder.setContentIntent(resultPendingIntent);
+    	
+    	NotificationManager mNotificationManager =
+    			(NotificationManager) getSystemService("notification");
+    	mNotificationManager.notify(123, mBuilder.build());
+		//create an intent that launches the FalsePositive check activity
+		System.out.println("I MADE IT");
+		
 		
 		int overCounter = 0;
 		int underCounter = 0;
@@ -52,8 +93,8 @@ public class MonitoringService extends IntentService {
 				break;
 			}
 		}
-		//create an intent that launches the FalsePositive check activity
-		System.out.println("IT MADE IT");
+//		Intent intent = new Intent(MonitoringService.this, NotificationPressed.class);
+		
 		
 	}
 	

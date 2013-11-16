@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -46,6 +47,10 @@
 
         <activity
             android:name="com.siezeAlert.seizealert.SeizureConfirmation"
+            android:label="@string/title_activity_seizure_confirmation" >
+        </activity>
+        <activity
+            android:name="com.siezeAlert.seizealert.TextingActivity"
             android:label="@string/title_activity_seizure_confirmation" >
         </activity>
     </application>
