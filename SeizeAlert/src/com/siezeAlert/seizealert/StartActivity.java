@@ -45,26 +45,16 @@ public class StartActivity extends Activity {
         
         setContentView(R.layout.activity_start);
         
-        
-//        Set <String> c = data.getStringSet("Contact1", null);
-//        Object [] contact = c.toArray();
-//        
-//        TextView contactNames = (TextView) findViewById(R.id.contactNames);
-//        contactNames.setText("AAAAAAAAAAAAA");
-//        for (int i = 0; i < CONTACT_MAX; i++) {
-//        	Set <String> c = data.getStringSet("Contact"+i, null);//new HashSet<String>());
-//        	if (c != null) {
-//        		Object [] contact = c.toArray();
-//                System.out.printf(""+contact[0]+" "+contact[1]+"\n");
-//                
-//                
-//                contactNames.setText(""+contact[0]);
-//        	}
-//            return;
-//        }
-        
-        
-        
+        TextView contactNames = (TextView) findViewById(R.id.contactNames);
+        for (int i = 0; i < CONTACT_MAX; i++) {
+        	Set <String> c = data.getStringSet("Contact"+i, null);//new HashSet<String>());
+        	if (c != null) {
+        		Object [] contact = c.toArray();
+                System.out.printf(""+contact[0]+" "+contact[1]+"\n");
+                contactNames.setText(contactNames.getText()+"\n"+contact[0]);
+        	}
+            return;
+        }
     }
 
     @Override

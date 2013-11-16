@@ -18,6 +18,7 @@ import android.view.View;
 public class SetupGetContacts extends Activity {
 
 	final int CONTACT_CASE = 0;
+	int contactCount= 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +74,10 @@ public class SetupGetContacts extends Activity {
         contact.add(name);
         contact.add(number);
         
-        editor.putStringSet("Contact1", contact);
+        editor.putStringSet("Contact"+contactCount, contact);
         editor.commit();
         System.out.printf("DATA: " + data.toString());
-        
+        contactCount++;
 	}
 
 }
