@@ -4,33 +4,33 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:orientation="vertical" >
-    
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="We're going to need your name to inform your emergency contacts who you are." />
-    
-    <EditText android:id="@+id/name"
+        android:id="@+id/count_down"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
+        android:layout_gravity="center"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Enter Your Name"/>
+        android:layout_weight="1"      
+        android:text="" />
     
-    <Button
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="NEXT"
-        android:onClick="nextSetupContacts"/>
+        android:layout_weight="1" 
+        android:adjustViewBounds="true"  
+  		android:maxWidth="42dp"  
+ 		android:maxHeight="42dp"  
+  		android:scaleType="fitCenter" 
+        android:src="@drawable/alright"
+        android:text="@string/alright"
+        android:onClick="falseAlarm"/>
 
 </LinearLayout>
