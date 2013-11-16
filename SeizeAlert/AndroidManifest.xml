@@ -36,6 +36,10 @@
             android:name="com.siezeAlert.seizealert.SetupGetContacts"
             android:label="@string/title_activity_setup_get_contacts" >
         </activity>
+        <activity
+            android:name="com.siezeAlert.seizealert.NotificationPressed"
+            android:label="@string/notification_pressed" >
+        </activity>
         <service
            	android:name=".MonitoringService"
            	android:exported="false" /> 
