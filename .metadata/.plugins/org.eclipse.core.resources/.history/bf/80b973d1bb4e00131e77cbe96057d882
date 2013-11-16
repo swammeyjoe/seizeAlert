@@ -27,7 +27,6 @@ public class NotificationPressed extends Activity {
     	
     	TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
     	stackBuilder.addParentStack(StartActivity.class);
-    	stackBuilder.addNextIntent(resultIntent);
     	PendingIntent resultPendingIntent =
     	        stackBuilder.getPendingIntent(
     	            0,

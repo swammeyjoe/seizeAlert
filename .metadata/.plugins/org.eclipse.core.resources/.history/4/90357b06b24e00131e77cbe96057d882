@@ -37,8 +37,6 @@ public class StartActivity extends Activity {
             
         	Intent intent = new Intent(this, SetupIntro.class);
             startActivityForResult(intent, 0);
-            editor.remove("FirstTime");
-        	editor.commit();
         } else {
         	
         	editor.remove("FirstTime");
@@ -49,7 +47,7 @@ public class StartActivity extends Activity {
         //check if an async task is currently running, if not fire one off to monitor the data
         setContentView(R.layout.activity_start);
 
-        if (!(isMonitorRunning())) {
+        if (!isMonitorRunning()){
         	Intent serviceIntent = new Intent(StartActivity.this, MonitoringService.class);
         	serviceIntent.setData(null);
         	StartActivity.this.startService(serviceIntent);
@@ -74,16 +72,6 @@ public class StartActivity extends Activity {
 //            return;
 //        }
         
-        TextView contactNames = (TextView) findViewById(R.id.contactNames);
-        for (int i = 0; i < CONTACT_MAX; i++) {
-        	Set <String> c = data.getStringSet("Contact"+i, null);//new HashSet<String>());
-        	if (c != null) {
-        		Object [] contact = c.toArray();
-                System.out.printf(""+contact[0]+" "+contact[1]+"\n");
-                contactNames.setText(contactNames.getText()+"\n"+contact[0]);
-        	}
-            return;
-        }
     }
 
     @Override

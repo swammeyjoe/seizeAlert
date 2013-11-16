@@ -25,16 +25,14 @@ public class NotificationPressed extends Activity {
     	        .setContentText("Click this to live");
     	Intent resultIntent = new Intent(this, StartActivity.class);    	
     	
-    	TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-    	stackBuilder.addParentStack(StartActivity.class);
-    	stackBuilder.addNextIntent(resultIntent);
-    	PendingIntent resultPendingIntent =
+    	//TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+    	//stackBuilder.addParentStack(StartActivity.class);
+    	/*PendingIntent resultPendingIntent =
     	        stackBuilder.getPendingIntent(
     	            0,
     	            PendingIntent.FLAG_UPDATE_CURRENT
-    	        );
-    	
-    	mBuilder.setContentIntent(resultPendingIntent);
+    	        );*/
+    	mBuilder.setContentIntent(resultIntent);
     	
     	NotificationManager mNotificationManager =
     			(NotificationManager) getSystemService("notification");
