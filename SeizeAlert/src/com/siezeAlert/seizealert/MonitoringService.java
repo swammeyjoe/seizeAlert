@@ -32,11 +32,6 @@ public class MonitoringService extends IntentService {
 
 	@Override
 	protected void onHandleIntent(Intent incoming) {
-		//String dataString = incoming.getDataString();
-		//System.out.println("This is the string we're getting from the intent: " + dataString);
-		Intent intent = new Intent(MonitoringService.this, NotificationPressed.class);
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startActivity(intent); 
 		System.out.println("Reached monitoring service");
 
 		//My plan for this method.
@@ -52,8 +47,10 @@ public class MonitoringService extends IntentService {
 				break;
 			}
 		}
-		//create an intent that launches the FalsePositive check activity
-		System.out.println("IT MADE IT");
+		//create an intent that launches a notification
+		Intent intent = new Intent(MonitoringService.this, NotificationPressed.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(intent); 
 		
 	}
 	
