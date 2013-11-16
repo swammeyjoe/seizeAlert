@@ -1,5 +1,7 @@
 package com.siezeAlert.seizealert;
 
+import java.util.Set;
+
 import android.telephony.*;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,13 +15,9 @@ public class TextingActivity extends Activity {
 		String name, number;
 		SmsManager texting = SmsManager.getDefault();
 		SharedPreferences data = getPreferences(MODE_PRIVATE);
-		name = data.getString("Name", "");
-		if (data.contains("Number1")){
-			number = data.getString("Number1", "");			
-		} else { 
-			number = "1111111111";
-		}
-		
-		texting.sendTextMessage("9562890158", null, "HELP", null, null);
+    	Set <String> c = data.getStringSet("Contact", null);//new HashSet<String>());
+		Object [] contact = c.toArray();
+		number = (String) contact[1];			
+		texting.sendTextMessage(number, null, "Automated testing app texting. Sorry.", null, null);
 	}
 }

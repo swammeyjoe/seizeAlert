@@ -24,16 +24,21 @@ public class MonitoringService extends IntentService {
 	ParcelFileDescriptor mFileDescriptor;
 	FileInputStream mInputStream;
 	
-	public MonitoringService(String name) {
-		super(name);
+	
+	public MonitoringService() {
+		super("Monitoring service");
 		// Auto-generated constructor stub
 	}
 
 	@Override
 	protected void onHandleIntent(Intent incoming) {
-		String dataString = incoming.getDataString();
-		System.out.println("This is the string we're getting from the intent: " + dataString);
-		
+		//String dataString = incoming.getDataString();
+		//System.out.println("This is the string we're getting from the intent: " + dataString);
+		Intent intent = new Intent(MonitoringService.this, NotificationPressed.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(intent); 
+		System.out.println("Reached monitoring service");
+
 		//My plan for this method.
 		
 		int overCounter = 0;
@@ -48,6 +53,8 @@ public class MonitoringService extends IntentService {
 			}
 		}
 		//create an intent that launches the FalsePositive check activity
+		System.out.println("IT MADE IT");
+		
 	}
 	
 	private void openAccessory(UsbAccessory accessory) {
@@ -64,6 +71,7 @@ public class MonitoringService extends IntentService {
 		public void onReceive(Context context, Intent intent) {
 			String action = intent.getAction();
 			if (UsbManager.ACTION_USB_ACCESSORY_ATTACHED.equals(action)) {
+				System.out.println("Attached");
 				synchronized (this) {
 					UsbAccessory accessory = (UsbAccessory) intent.getParcelableExtra(UsbManager.EXTRA_ACCESSORY);
 					if (intent.getBooleanExtra(
@@ -73,6 +81,7 @@ public class MonitoringService extends IntentService {
 					}
 				}
 			} else if (UsbManager.ACTION_USB_ACCESSORY_DETACHED.equals(action)) {
+				System.out.println("Not attached");
 				UsbAccessory accessory = (UsbAccessory) intent.getParcelableExtra(UsbManager.EXTRA_ACCESSORY);
 			}
 		}
@@ -80,6 +89,7 @@ public class MonitoringService extends IntentService {
 	
 	//TESTING PURPOSES ONLY!!!!!!
 	private int readFromBoard() {
+		//System.out.println("TEST TEST TEST TEST TEST TEST TEST");
 		int retVal = -1;
 		byte[] buffer = new byte[1024];
 		int err = 0;

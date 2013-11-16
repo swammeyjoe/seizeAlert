@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SeizeAlert</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_setup_intro">SetupIntro</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_setup_get_name">SetupGetName</string>
+    <string name="title_activity_setup_get_contacts">SetupGetContacts</string>
+    <string name="title_activity_setup_notification_pressed">NotificationPressed</string>
+
+</resources>

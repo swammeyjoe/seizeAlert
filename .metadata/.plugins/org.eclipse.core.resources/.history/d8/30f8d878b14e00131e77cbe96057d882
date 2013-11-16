@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SeizeAlert</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_setup_intro">SetupIntro</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_setup_get_name">SetupGetName</string>
+    <string name="title_activity_setup_get_contacts">SetupGetContacts</string>
+<<<<<<< HEAD
+    <string name="notification_pressed">NotificationPressed</string>
+
+=======
+    <string name="seize_alert_title">SEIZEALERT</string>
+    <string name="seize_alert_description">SeizeAlert is an application that listens to your skins conductivity to determine if you are having a stroke.  If you are having a stroke, SeizeAlert will contact the people of your choosing (ie. your mom).  Click NEXT to get started with the initial set up.</string>
+	<string name="next">Next</string>
+	
+>>>>>>> 3854e2dd80f149c477659225ffcef766e052d7fb
+</resources>
