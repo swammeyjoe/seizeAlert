@@ -18,6 +18,7 @@ public class TextingActivity extends Activity {
     	Set <String> c = data.getStringSet("Contact", null);//new HashSet<String>());
 		Object [] contact = c.toArray();
 		number = (String) contact[1];			
-		texting.sendTextMessage(number, null, "Automated testing app texting. Sorry.", null, null);
+		
+		texting.sendTextMessage(number, null, "Testing app texting. Sorry.", null, null);
 	}
 }
